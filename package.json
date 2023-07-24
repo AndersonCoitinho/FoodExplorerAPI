@@ -1,0 +1,23 @@
+{
+  "name": "foodexplorerapi",
+  "version": "1.0.0",
+  "description": "Desenvolvido durante o Explorer da Rocketseat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndersonCoitinho/FoodExplorerAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndersonCoitinho/FoodExplorerAPI/issues"
+  },
+  "homepage": "https://github.com/AndersonCoitinho/FoodExplorerAPI#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
