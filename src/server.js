@@ -1,6 +1,7 @@
 const express = require("express"); //importanto express 
 
 const app = express(); //inicializando express
+app.use(express.json());//API vai "entender" que vai receber as respostas em json
 
 const PORT = 3333;//definindo a porta de execução
 
