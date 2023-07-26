@@ -1,9 +1,10 @@
 const { Router } = require("express")
 
-const usersRoutes = Router();
+const UsersController = require("../controllers/UserController")
 
-usersRoutes.post("/", (request, response) => {
-    response.send("funcionanod")
-})
+const usersRoutes = Router();
+const userController = new UsersController();
+
+usersRoutes.post("/", userController.create)
 
 module.exports = usersRoutes;
