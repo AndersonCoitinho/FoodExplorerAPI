@@ -21,6 +21,7 @@ class UsersController {
     }
 
     async update(request, response) {
+        /*ATUALIZAR */
         const { name, email, password } = request.body;
         const { user_id } = request.params;
 
@@ -46,7 +47,6 @@ class UsersController {
 
         return response.status(200).json();
     }
-
 }
 
 module.exports = UsersController;
