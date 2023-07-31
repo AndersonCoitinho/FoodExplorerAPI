@@ -29,6 +29,12 @@ class FoodPlatesController {
 
   }
 
+  async index (request, response) {
+    const plates = await knex("foodplates").orderBy("name")
+
+    return response.json(plates);
+  }
+
 }
 
 module.exports = FoodPlatesController;
