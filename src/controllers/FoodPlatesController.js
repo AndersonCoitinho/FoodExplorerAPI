@@ -3,7 +3,7 @@ const knex = require("../database/knex");
 class FoodPlatesController {
   async create(request, response) {
     const { name, description, value } = request.body;
-    const { user_id } = request.params
+    const user_id = request.user.id
 
     await knex("foodplates").insert({ name, description, value });
 
@@ -31,6 +31,7 @@ class FoodPlatesController {
 
   async index (request, response) {
     const { name } = request.query
+    const user_id = request.user.id
 
     const plates = await knex("foodplates")
     .whereLike("name", `%${name}%`)

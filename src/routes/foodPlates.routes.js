@@ -1,9 +1,12 @@
 const { Router } = require("express")
 
 const FoodPlatesController = require("../controllers/FoodPlatesController")
+const ensureAuthenticated = require("../middlewares/ensureAuthenticated")
 
 const foodPlatesRoutes = Router();
 const foodPlatesController = new FoodPlatesController();
+
+foodPlatesRoutes.use(ensureAuthenticated)
 
 foodPlatesRoutes.get("/", foodPlatesController.index)
 foodPlatesRoutes.post("/", foodPlatesController.create)

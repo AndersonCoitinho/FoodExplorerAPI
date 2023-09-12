@@ -23,7 +23,7 @@ class UsersController {
     async update(request, response) {
         /*ATUALIZAR */
         const { name, email, password } = request.body;
-        const { user_id } = request.params;
+        const user_id = request.user.id
 
         const user = await knex("users").where({ user_id });
         if (!user) {
