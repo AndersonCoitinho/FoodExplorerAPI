@@ -1,12 +1,13 @@
 require("express-async-errors")
-
 const AppError = require("./utils/AppError")
 const express = require("express"); //importanto express 
-
 const routes = require("./routes")
+const uploadConfig = require("./configs/upload");
 
 const app = express(); //inicializando express
 app.use(express.json());//API vai "entender" que vai receber as respostas em json
+
+app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 
 app.use(routes)
 
