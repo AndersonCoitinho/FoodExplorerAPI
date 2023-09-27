@@ -2,13 +2,14 @@ const knex = require("../database/knex");
 
 class FoodPlatesController {
   async create(request, response) {
-    const { name, description, value } = request.body;
+    const { name, description, value, category } = request.body;
 
-    await knex("foodplates").insert({ name, description, value });
+    await knex("foodplates").insert({ name, description, value, category });
 
     return response.status(201).json()
 
   }
+  /*ataulizar category e ingredients*/
 
   async update(request, response) {
     const { name, description, value } = request.body;
