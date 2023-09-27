@@ -2,9 +2,18 @@ const knex = require("../database/knex");
 
 class FoodPlatesController {
   async create(request, response) {
-    const { name, description, value, category } = request.body;
+    const { name, description, value, category, ingredients } = request.body;
 
-    await knex("foodplates").insert({ name, description, value, category });
+    const [plates_id] = await knex("foodplates").insert({ name, description, value, category });
+
+    const ingredientsInsert = ingredients.map(name => {
+      return {
+        name,
+        plates_id
+      }
+    })
+
+    await knex("ingredients").insert(ingredientsInsert)
 
     return response.status(201).json()
 
