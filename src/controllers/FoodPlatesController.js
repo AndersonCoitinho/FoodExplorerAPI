@@ -6,14 +6,16 @@ class FoodPlatesController {
 
     const [plates_id] = await knex("foodplates").insert({ name, description, value, category });
 
-    const ingredientsInsert = ingredients.map(name => {
-      return {
-        name,
-        plates_id
-      }
-    })
+    if (ingredients && Array.isArray(ingredients)) {
+      const ingredientsInsert = ingredients.map(name => {
+        return {
+          name,
+          plates_id
+        };
+      });
 
-    await knex("ingredients").insert(ingredientsInsert)
+      await knex("ingredients").insert(ingredientsInsert);
+    }
 
     return response.status(201).json()
 
