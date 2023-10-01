@@ -17,7 +17,7 @@ class FoodPlatesController {
       await knex("ingredients").insert(ingredientsInsert);
     }
 
-    return response.status(201).json()
+    return response.status(201).json(plates_id)
 
   }
   /*ataulizar category e ingredients*/
