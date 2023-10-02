@@ -12,7 +12,7 @@ const upload = multer(uploadConfig.MULTER)
 const foodPlatesController = new FoodPlatesController();
 const foodPlatesAvatarController =  new FoodPlatesAvatarController();
 
-//foodPlatesRoutes.use(ensureAuthenticated)
+foodPlatesRoutes.use(ensureAuthenticated)
 
 foodPlatesRoutes.get("/", foodPlatesController.index)
 foodPlatesRoutes.post("/", foodPlatesController.create)

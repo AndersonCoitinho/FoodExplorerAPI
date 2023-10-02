@@ -50,12 +50,15 @@ class FoodPlatesController {
   }
 
   async index(request, response) {
-    const { name } = request.query
-    const user_id = request.user.id
+    /*const { name, user_id } = request.query
 
     const plates = await knex("foodplates")
       .whereLike("name", `%${name}%`)
       .orderBy("name")
+
+      */
+
+      const plates = await knex("foodplates")
 
     return response.json(plates);
   }
