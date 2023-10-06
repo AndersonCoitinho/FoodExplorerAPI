@@ -35,8 +35,9 @@ class FoodPlatesController {
     const { plates_id } = request.params;
 
     const plates = await knex("foodplates").where({ plates_id }).first()
+    const ingredients = await knex("ingredients").where({ plates_id: plates_id })
 
-    return response.json(plates)
+    return response.json({plates, ingredients})
 
   }
 
