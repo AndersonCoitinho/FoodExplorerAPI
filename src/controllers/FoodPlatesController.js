@@ -23,10 +23,10 @@ class FoodPlatesController {
   /*ataulizar category e ingredients*/
 
   async update(request, response) {
-    const { name, description, value } = request.body;
+    const { name, description, value, category } = request.body;
     const { plates_id } = request.params;
 
-    await knex("foodplates").update({ name, description, value, updated_at: knex.fn.now(), }).where({ plates_id });
+    await knex("foodplates").update({ name, description, value, category, updated_at: knex.fn.now(), }).where({ plates_id });
 
     return response.status(200).json()
   }
